@@ -1,4 +1,4 @@
-deps := ""
+deps := "nan_boxing.c"
 tests := "test/test_types.c"
 
 compile:
