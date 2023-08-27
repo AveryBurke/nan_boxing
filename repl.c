@@ -18,8 +18,8 @@ double parse_atom()
   int i;
   int32_t trunc;
   /* 
-  if the token scans as a float, first check if it can be stored as an int32.
-  if so return an encoded int, else the float is in d -- return it -- else return an encoded string string
+  if the token scans as a float, first check if it can be stored as an int32;
+  if so return an encoded int, else the float is in d -- return it -- else return an encoded string.
   the segment d == (double)(trunc = d) tests if d can be truncated to an int32 and then cast back to a duble without loosing precision
   */
   return (sscanf(buf, "%lg%n", &d, &i) > 0 && !buf[i]) ? d == (double)(trunc = d) ? encode_int(d) : d : new_string(buf);
@@ -73,7 +73,7 @@ double Read()
 
 int main(int argc, char const *argv[])
 {
-  printf("nan boxing demo\npress 'controle + c' to exit\n");
+  printf("nan boxing demo 0.1 by Avery Burke\ntype something and press 'enter' to see it evaluated\npress 'controle + c' to exit\n");
   while (1)
   {
     printf("> ");
