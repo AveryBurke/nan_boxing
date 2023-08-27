@@ -29,7 +29,7 @@ You will need [just](https://github.com/casey/just) installed if you want to bui
 
 ## Usage
 
-Start the REPL with `./repl` or with `just run`. Enter expressions and see the resulting tokens and types
+Start the REPL with `./repl` or with `just run`. Enter expressions and watch as they are evaluated right before your eyes!
 
 ```lisp
 $> (+ 8 -8 .1234)
