@@ -2,7 +2,7 @@
 
 This is a simple demonstration of the NaN Boxing implementation described in my blog post [Dynamic Typing and NaN Boxing](https://averyburke.github.io/blog/2023/08/23/Nan-Boxing.html). 
 
-NaN boxing is an optimization in dynamically typed languages to store type data and value data together by exploiting some features of the [IEEE specification for NaN](https://en.wikipedia.org/wiki/NaN). It turns out the specification leaves 51 mantissa bits that get ignored when a double is determined to be Not a Number. NaN boxing works by storing the type and the value of a token in those overlooked bits.  This avoids allocating doubles on the heap and it preserves locality of reference.
+NaN boxing is an optimization in dynamically typed languages to store the type and the value of a token, together, by exploiting some features of the [IEEE specification for NaN](https://en.wikipedia.org/wiki/NaN). It turns out the specification leaves 51 mantissa bits that get ignored when a double is determined to be Not a Number. NaN boxing works by storing the type and the value in those overlooked bits.  This avoids allocating doubles on the heap and it preserves locality of reference.
 
 I use the three most significant digits of the 51 mantissa bits to store type data. The three bit type data is also referred to as a *tag*. The remaining 48 digits store the value data. I will refer to this as the *payload*. Since modern architectures only use the lower 48 bits of a 64 bit pointer, the payload can even hold pointers.
 
